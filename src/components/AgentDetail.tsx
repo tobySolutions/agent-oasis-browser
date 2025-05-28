@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -7,12 +6,14 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Bot, ArrowLeft, Star, Users, Activity, ExternalLink, MessageCircle, LogOut } from 'lucide-react';
+import { ChatInterface } from './ChatInterface';
 
 export const AgentDetail = ({ currentUser, onLogout }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [agent, setAgent] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
     const agents = JSON.parse(localStorage.getItem('marketplace_agents') || '[]');
@@ -26,12 +27,19 @@ export const AgentDetail = ({ currentUser, onLogout }) => {
       case 'WEB3': return 'bg-green-500/20 text-green-400 border-green-500/30';
       case 'SHOPPING': return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
       case 'UTILITY': return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
+      case 'FINANCE': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+      case 'HEALTH': return 'bg-red-500/20 text-red-400 border-red-500/30';
+      case 'EDUCATION': return 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30';
+      case 'ENTERTAINMENT': return 'bg-pink-500/20 text-pink-400 border-pink-500/30';
+      case 'BUSINESS': return 'bg-orange-500/20 text-orange-400 border-orange-500/30';
       default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
     }
   };
 
   const handleTryAgent = () => {
-    // Simulate interaction with agent
+    setIsChatOpen(true);
+    
+    // Update user count
     const agents = JSON.parse(localStorage.getItem('marketplace_agents') || '[]');
     const updatedAgents = agents.map(a => 
       a.id === agent.id 
@@ -40,9 +48,6 @@ export const AgentDetail = ({ currentUser, onLogout }) => {
     );
     localStorage.setItem('marketplace_agents', JSON.stringify(updatedAgents));
     setAgent(prev => ({ ...prev, users: prev.users + 1 }));
-    
-    // Show demo interaction
-    alert(`🤖 Hello! I'm ${agent.name}. This is a demo interaction. In a real implementation, I would be powered by Gaia inferencing to help you with ${agent.category.toLowerCase()} tasks.`);
   };
 
   if (isLoading) {
@@ -292,6 +297,14 @@ export const AgentDetail = ({ currentUser, onLogout }) => {
           </div>
         </div>
       </div>
+
+      {/* Chat Interface */}
+      <ChatInterface 
+        agent={agent}
+        currentUser={currentUser}
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
+      />
     </div>
   );
 };

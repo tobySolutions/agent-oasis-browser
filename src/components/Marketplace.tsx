@@ -16,7 +16,7 @@ export const Marketplace = ({ currentUser, onLogout }) => {
   const [filteredAgents, setFilteredAgents] = useState([]);
   const navigate = useNavigate();
 
-  const categories = ['ALL', 'WEB3', 'SHOPPING', 'UTILITY'];
+  const categories = ['ALL', 'WEB3', 'SHOPPING', 'UTILITY', 'FINANCE', 'HEALTH', 'EDUCATION', 'ENTERTAINMENT', 'BUSINESS'];
 
   useEffect(() => {
     // Initialize agents from data or localStorage
@@ -52,6 +52,11 @@ export const Marketplace = ({ currentUser, onLogout }) => {
       case 'WEB3': return 'bg-green-500/20 text-green-400 border-green-500/30';
       case 'SHOPPING': return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
       case 'UTILITY': return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
+      case 'FINANCE': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
+      case 'HEALTH': return 'bg-red-500/20 text-red-400 border-red-500/30';
+      case 'EDUCATION': return 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30';
+      case 'ENTERTAINMENT': return 'bg-pink-500/20 text-pink-400 border-pink-500/30';
+      case 'BUSINESS': return 'bg-orange-500/20 text-orange-400 border-orange-500/30';
       default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
     }
   };
@@ -98,7 +103,7 @@ export const Marketplace = ({ currentUser, onLogout }) => {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Search and Filters */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        <div className="flex flex-col gap-4 mb-8">
           <div className="relative flex-1">
             <Search className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <Input
@@ -109,7 +114,7 @@ export const Marketplace = ({ currentUser, onLogout }) => {
             />
           </div>
           
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {categories.map(category => (
               <Button
                 key={category}
