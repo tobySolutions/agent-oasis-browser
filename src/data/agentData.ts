@@ -53,10 +53,23 @@ export const agentData = [
     pricing: "free",
     gaiaEnabled: true
   },
+  {
+    id: 5,
+    name: "Crypto Social Tracker",
+    description: "Monitor crypto sentiment across Twitter, Discord, and Farcaster for trading insights.",
+    category: "WEB3",
+    tags: ["Social", "Sentiment", "Twitter", "Discord", "Farcaster"],
+    rating: 4.5,
+    reviews: 234,
+    users: 12890,
+    capabilities: "Twitter sentiment analysis, Discord community tracking, Farcaster protocol monitoring, influencer impact scoring",
+    pricing: "freemium",
+    gaiaEnabled: true
+  },
 
   // SHOPPING Agents
   {
-    id: 5,
+    id: 6,
     name: "Smart Price Comparison",
     description: "Find the best deals across thousands of online stores with real-time price tracking and alerts.",
     category: "SHOPPING",
@@ -69,7 +82,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 6,
+    id: 7,
     name: "Personal Shopping Assistant",
     description: "AI-powered personal shopper that understands your style and budget to recommend perfect products.",
     category: "SHOPPING",
@@ -82,7 +95,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 7,
+    id: 8,
     name: "Sustainable Shopping Guide",
     description: "Discover eco-friendly alternatives and sustainable brands with environmental impact scoring.",
     category: "SHOPPING",
@@ -94,10 +107,23 @@ export const agentData = [
     pricing: "free",
     gaiaEnabled: true
   },
+  {
+    id: 9,
+    name: "Social Shopping Curator",
+    description: "Curate shopping recommendations from influencer posts on Instagram, Twitter, and TikTok.",
+    category: "SHOPPING",
+    tags: ["Social", "Influencer", "Twitter", "Instagram", "Curation"],
+    rating: 4.4,
+    reviews: 678,
+    users: 28340,
+    capabilities: "Influencer product tracking, social media shopping integration, trend identification, authentic review aggregation",
+    pricing: "free",
+    gaiaEnabled: true
+  },
 
   // UTILITY Agents
   {
-    id: 8,
+    id: 10,
     name: "Document AI Assistant",
     description: "Extract, analyze, and summarize information from any document type with high accuracy.",
     category: "UTILITY",
@@ -110,7 +136,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 9,
+    id: 11,
     name: "Smart Calendar Scheduler",
     description: "Intelligent meeting scheduling that optimizes your calendar across multiple platforms and time zones.",
     category: "UTILITY",
@@ -123,7 +149,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 10,
+    id: 12,
     name: "Code Review Assistant",
     description: "Automated code review and improvement suggestions for multiple programming languages.",
     category: "UTILITY",
@@ -135,10 +161,23 @@ export const agentData = [
     pricing: "freemium",
     gaiaEnabled: true
   },
+  {
+    id: 13,
+    name: "Social Media Manager",
+    description: "Automate posting and engagement across Twitter, LinkedIn, and Discord with AI-generated content.",
+    category: "UTILITY",
+    tags: ["Social Media", "Automation", "Twitter", "LinkedIn", "Discord"],
+    rating: 4.5,
+    reviews: 892,
+    users: 34567,
+    capabilities: "Multi-platform posting, content generation, engagement automation, analytics tracking across Twitter, LinkedIn, Discord",
+    pricing: "paid",
+    gaiaEnabled: true
+  },
 
   // FINANCE Agents
   {
-    id: 11,
+    id: 14,
     name: "Investment Advisor AI",
     description: "Personalized investment recommendations based on your risk profile and financial goals.",
     category: "FINANCE",
@@ -151,7 +190,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 12,
+    id: 15,
     name: "Expense Tracker Pro",
     description: "Smart expense categorization and budgeting with AI-powered spending insights.",
     category: "FINANCE",
@@ -164,7 +203,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 13,
+    id: 16,
     name: "Tax Optimization Bot",
     description: "Maximize your tax savings with intelligent deduction discovery and filing assistance.",
     category: "FINANCE",
@@ -176,10 +215,36 @@ export const agentData = [
     pricing: "paid",
     gaiaEnabled: true
   },
+  {
+    id: 17,
+    name: "Financial News Aggregator",
+    description: "Curate personalized financial news from Twitter, LinkedIn, and financial publications.",
+    category: "FINANCE",
+    tags: ["News", "Analysis", "Twitter", "LinkedIn", "Markets"],
+    rating: 4.4,
+    reviews: 445,
+    users: 15670,
+    capabilities: "Twitter financial sentiment, LinkedIn professional insights, market news curation, impact analysis",
+    pricing: "free",
+    gaiaEnabled: true
+  },
+  {
+    id: 18,
+    name: "Crypto Tax Calculator",
+    description: "Comprehensive cryptocurrency tax calculation with multi-exchange integration.",
+    category: "FINANCE",
+    tags: ["Crypto", "Tax", "DeFi", "Trading"],
+    rating: 4.8,
+    reviews: 723,
+    users: 22340,
+    capabilities: "Multi-exchange import, DeFi transaction tracking, tax loss harvesting, regulatory compliance",
+    pricing: "freemium",
+    gaiaEnabled: true
+  },
 
   // HEALTH Agents
   {
-    id: 14,
+    id: 19,
     name: "Health Symptom Checker",
     description: "AI-powered symptom analysis and health recommendations with medical knowledge base.",
     category: "HEALTH",
@@ -192,7 +257,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 15,
+    id: 20,
     name: "Fitness Coach AI",
     description: "Personalized workout plans and nutrition guidance based on your fitness goals and preferences.",
     category: "HEALTH",
@@ -205,7 +270,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 16,
+    id: 21,
     name: "Mental Wellness Companion",
     description: "AI companion for mental health support, mood tracking, and stress management techniques.",
     category: "HEALTH",
@@ -217,10 +282,36 @@ export const agentData = [
     pricing: "freemium",
     gaiaEnabled: true
   },
+  {
+    id: 22,
+    name: "Health Community Connector",
+    description: "Connect with health communities on Discord and LinkedIn for support and advice.",
+    category: "HEALTH",
+    tags: ["Community", "Support", "Discord", "LinkedIn", "Networking"],
+    rating: 4.3,
+    reviews: 334,
+    users: 18790,
+    capabilities: "Discord health community matching, LinkedIn healthcare networking, support group recommendations, expert connections",
+    pricing: "free",
+    gaiaEnabled: true
+  },
+  {
+    id: 23,
+    name: "Medical Research Assistant",
+    description: "Stay updated with latest medical research and clinical trials relevant to your conditions.",
+    category: "HEALTH",
+    tags: ["Research", "Clinical", "Studies", "Medicine"],
+    rating: 4.6,
+    reviews: 567,
+    users: 23450,
+    capabilities: "Research paper analysis, clinical trial matching, treatment option discovery, medical trend tracking",
+    pricing: "paid",
+    gaiaEnabled: true
+  },
 
   // EDUCATION Agents
   {
-    id: 17,
+    id: 24,
     name: "Language Learning Tutor",
     description: "Personalized language learning with conversational practice and grammar correction.",
     category: "EDUCATION",
@@ -233,7 +324,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 18,
+    id: 25,
     name: "Study Buddy AI",
     description: "Intelligent study companion that helps with note-taking, quiz generation, and learning optimization.",
     category: "EDUCATION",
@@ -246,7 +337,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 19,
+    id: 26,
     name: "Research Assistant Pro",
     description: "Advanced research capabilities with paper analysis, citation management, and insight generation.",
     category: "EDUCATION",
@@ -258,10 +349,36 @@ export const agentData = [
     pricing: "paid",
     gaiaEnabled: true
   },
+  {
+    id: 27,
+    name: "Academic Social Network",
+    description: "Connect with researchers and academics on Twitter and LinkedIn for collaboration.",
+    category: "EDUCATION",
+    tags: ["Academic", "Networking", "Twitter", "LinkedIn", "Research"],
+    rating: 4.4,
+    reviews: 445,
+    users: 16780,
+    capabilities: "Academic Twitter monitoring, LinkedIn researcher connections, collaboration matching, conference discovery",
+    pricing: "freemium",
+    gaiaEnabled: true
+  },
+  {
+    id: 28,
+    name: "Skill Development Tracker",
+    description: "Track your learning progress and discover new skills based on industry trends.",
+    category: "EDUCATION",
+    tags: ["Skills", "Learning", "Career", "Development"],
+    rating: 4.5,
+    reviews: 678,
+    users: 28340,
+    capabilities: "Skill gap analysis, learning path recommendations, industry trend monitoring, certification tracking",
+    pricing: "free",
+    gaiaEnabled: true
+  },
 
   // ENTERTAINMENT Agents
   {
-    id: 20,
+    id: 29,
     name: "Movie Recommendation Engine",
     description: "Personalized movie and TV show recommendations based on your viewing history and preferences.",
     category: "ENTERTAINMENT",
@@ -274,7 +391,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 21,
+    id: 30,
     name: "Music Discovery AI",
     description: "Discover new music tailored to your taste with AI-powered playlist generation and artist recommendations.",
     category: "ENTERTAINMENT",
@@ -287,7 +404,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 22,
+    id: 31,
     name: "Game Strategy Coach",
     description: "AI coach for various games providing strategy tips, move analysis, and skill improvement guidance.",
     category: "ENTERTAINMENT",
@@ -299,10 +416,36 @@ export const agentData = [
     pricing: "paid",
     gaiaEnabled: true
   },
+  {
+    id: 32,
+    name: "Social Entertainment Hub",
+    description: "Discover trending entertainment content from Twitter, Discord communities, and Farcaster.",
+    category: "ENTERTAINMENT",
+    tags: ["Social", "Trends", "Twitter", "Discord", "Farcaster"],
+    rating: 4.3,
+    reviews: 567,
+    users: 25890,
+    capabilities: "Twitter trend monitoring, Discord entertainment communities, Farcaster content discovery, viral content prediction",
+    pricing: "free",
+    gaiaEnabled: true
+  },
+  {
+    id: 33,
+    name: "Content Creator Assistant",
+    description: "AI-powered content creation for YouTube, TikTok, and social media platforms.",
+    category: "ENTERTAINMENT",
+    tags: ["Content", "Creation", "YouTube", "TikTok", "Social"],
+    rating: 4.7,
+    reviews: 892,
+    users: 31240,
+    capabilities: "Video script generation, thumbnail optimization, trending topic analysis, engagement prediction",
+    pricing: "freemium",
+    gaiaEnabled: true
+  },
 
   // BUSINESS Agents
   {
-    id: 23,
+    id: 34,
     name: "Market Research Analyst",
     description: "Comprehensive market analysis and competitor research with trend identification and opportunity mapping.",
     category: "BUSINESS",
@@ -315,7 +458,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 24,
+    id: 35,
     name: "Sales Lead Generator",
     description: "Intelligent lead generation and qualification with automated outreach and follow-up strategies.",
     category: "BUSINESS",
@@ -328,7 +471,7 @@ export const agentData = [
     gaiaEnabled: true
   },
   {
-    id: 25,
+    id: 36,
     name: "Content Marketing Assistant",
     description: "AI-powered content creation, SEO optimization, and social media management for marketing campaigns.",
     category: "BUSINESS",
@@ -338,6 +481,58 @@ export const agentData = [
     users: 45678,
     capabilities: "Content generation, SEO optimization, social media scheduling, campaign analytics",
     pricing: "freemium",
+    gaiaEnabled: true
+  },
+  {
+    id: 37,
+    name: "LinkedIn Growth Hacker",
+    description: "Optimize your LinkedIn presence with AI-powered content and networking strategies.",
+    category: "BUSINESS",
+    tags: ["LinkedIn", "Networking", "Growth", "Professional"],
+    rating: 4.5,
+    reviews: 678,
+    users: 19870,
+    capabilities: "LinkedIn content optimization, connection targeting, engagement automation, thought leadership development",
+    pricing: "paid",
+    gaiaEnabled: true
+  },
+  {
+    id: 38,
+    name: "Business Intelligence Bot",
+    description: "Extract insights from business data and social signals across Twitter, LinkedIn, and Discord.",
+    category: "BUSINESS",
+    tags: ["Intelligence", "Analytics", "Twitter", "LinkedIn", "Discord"],
+    rating: 4.6,
+    reviews: 445,
+    users: 15670,
+    capabilities: "Social sentiment analysis, competitive intelligence, market signal detection, business trend prediction",
+    pricing: "paid",
+    gaiaEnabled: true
+  },
+  {
+    id: 39,
+    name: "Startup Advisor AI",
+    description: "Mentorship and guidance for startups with access to founder communities on Discord and Twitter.",
+    category: "BUSINESS",
+    tags: ["Startup", "Mentorship", "Discord", "Twitter", "Funding"],
+    rating: 4.4,
+    reviews: 334,
+    users: 12340,
+    capabilities: "Startup community access, mentor matching, funding opportunity alerts, pitch deck optimization",
+    pricing: "freemium",
+    gaiaEnabled: true
+  },
+  {
+    id: 40,
+    name: "Customer Support Automator",
+    description: "Automate customer support across multiple channels including Discord and social media.",
+    category: "BUSINESS",
+    tags: ["Support", "Automation", "Discord", "Customer Service"],
+    rating: 4.7,
+    reviews: 789,
+    users: 28900,
+    capabilities: "Multi-channel support, automated responses, sentiment analysis, escalation management",
+    pricing: "paid",
     gaiaEnabled: true
   }
 ];
