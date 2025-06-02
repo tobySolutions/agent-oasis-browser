@@ -5,6 +5,7 @@ import { Marketplace } from '@/components/Marketplace';
 import { Login } from '@/components/Login';
 import { AgentOnboarding } from '@/components/AgentOnboarding';
 import { AgentDetail } from '@/components/AgentDetail';
+import { ApiDashboard } from '@/components/ApiDashboard';
 
 const Index = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -48,6 +49,10 @@ const Index = () => {
         <Route 
           path="/agent/:id" 
           element={<AgentDetail currentUser={currentUser} onLogout={handleLogout} />} 
+        />
+        <Route 
+          path="/dashboard" 
+          element={<ApiDashboard currentUser={currentUser} onLogout={handleLogout} />} 
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
