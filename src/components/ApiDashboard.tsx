@@ -393,12 +393,12 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
               </CardHeader>
               <CardContent>
                 <div className="bg-slate-900/50 rounded p-4">
-                  <code className="text-sm text-gray-300">
-                    <div>curl -X POST \</div>
-                    <div className="text-purple-400">  https://api.marketplace.ai/v1/chat \</div>
-                    <div>  -H "Authorization: Bearer YOUR_KEY" \</div>
-                    <div>  -d '{"message": "Hello"}'</div>
-                  </code>
+                  <pre className="text-sm text-gray-300">
+                    <code>{`curl -X POST \\
+  https://api.marketplace.ai/v1/chat \\
+  -H "Authorization: Bearer YOUR_KEY" \\
+  -d '{"message": "Hello"}'`}</code>
+                  </pre>
                 </div>
               </CardContent>
             </Card>
