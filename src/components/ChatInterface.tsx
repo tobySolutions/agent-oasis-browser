@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -141,17 +140,17 @@ export const ChatInterface = ({ agent, currentUser, isOpen, onClose }: ChatInter
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <Card className="w-full max-w-2xl h-[600px] bg-slate-900 border-slate-700 flex flex-col">
+      <Card className="w-full max-w-2xl h-[600px] bg-white border-gray-300 flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-slate-700">
+        <div className="flex items-center justify-between p-4 border-b border-gray-300">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
               <Bot className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h3 className="text-white font-semibold">{agent.name}</h3>
-              <div className="flex items-center space-x-1 text-sm text-gray-400">
-                <Sparkles className="w-3 h-3 text-purple-400" />
+              <h3 className="text-black font-semibold">{agent.name}</h3>
+              <div className="flex items-center space-x-1 text-sm text-gray-600">
+                <Sparkles className="w-3 h-3 text-gray-600" />
                 <span>Powered by Gaia</span>
               </div>
             </div>
@@ -160,7 +159,7 @@ export const ChatInterface = ({ agent, currentUser, isOpen, onClose }: ChatInter
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="text-gray-400 hover:text-white"
+            className="text-gray-600 hover:text-black"
           >
             <X className="w-5 h-5" />
           </Button>
@@ -185,7 +184,7 @@ export const ChatInterface = ({ agent, currentUser, isOpen, onClose }: ChatInter
                       <AvatarFallback><User className="w-4 h-4" /></AvatarFallback>
                     </>
                   ) : (
-                    <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500">
+                    <AvatarFallback className="bg-black">
                       <Bot className="w-4 h-4 text-white" />
                     </AvatarFallback>
                   )}
@@ -193,8 +192,8 @@ export const ChatInterface = ({ agent, currentUser, isOpen, onClose }: ChatInter
                 <div
                   className={`rounded-lg p-3 ${
                     message.sender === 'user'
-                      ? 'bg-purple-600 text-white'
-                      : 'bg-slate-800 text-gray-100 border border-slate-700'
+                      ? 'bg-black text-white'
+                      : 'bg-gray-100 text-black border border-gray-300'
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
@@ -210,15 +209,15 @@ export const ChatInterface = ({ agent, currentUser, isOpen, onClose }: ChatInter
             <div className="flex justify-start">
               <div className="flex items-start space-x-2">
                 <Avatar className="w-8 h-8">
-                  <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500">
+                  <AvatarFallback className="bg-black">
                     <Bot className="w-4 h-4 text-white" />
                   </AvatarFallback>
                 </Avatar>
-                <div className="bg-slate-800 border border-slate-700 rounded-lg p-3">
+                <div className="bg-gray-100 border border-gray-300 rounded-lg p-3">
                   <div className="flex space-x-1">
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
                 </div>
               </div>
@@ -228,19 +227,19 @@ export const ChatInterface = ({ agent, currentUser, isOpen, onClose }: ChatInter
         </div>
 
         {/* Input */}
-        <div className="p-4 border-t border-slate-700">
+        <div className="p-4 border-t border-gray-300">
           <div className="flex space-x-2">
             <Input
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Type your message..."
-              className="bg-slate-800 border-slate-600 text-white placeholder-gray-400"
+              className="bg-white border-gray-300 text-black placeholder-gray-500"
             />
             <Button
               onClick={handleSendMessage}
               disabled={!inputValue.trim()}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+              className="bg-black text-white hover:bg-gray-800"
             >
               <Send className="w-4 h-4" />
             </Button>
