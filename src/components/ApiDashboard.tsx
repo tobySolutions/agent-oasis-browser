@@ -8,7 +8,6 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Key, ArrowLeft, Copy, Eye, EyeOff, Plus, Trash2, LogOut, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -23,11 +22,25 @@ interface ApiKey {
   isActive: boolean;
 }
 
-export const ApiDashboard = ({ currentUser, onLogout }) => {
+interface Agent {
+  id: number;
+  name: string;
+  category: string;
+}
+
+interface ApiDashboardProps {
+  currentUser: {
+    name: string;
+    avatar?: string;
+  } | null;
+  onLogout: () => void;
+}
+
+export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogout }) => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([]);
-  const [agents, setAgents] = useState([]);
+  const [agents, setAgents] = useState<Agent[]>([]);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [newKeyName, setNewKeyName] = useState('');
   const [selectedAgent, setSelectedAgent] = useState('');
