@@ -1,5 +1,5 @@
 
-# AI Marketplace Platform - Project Documentation
+# AI Agent Marketplace Platform - Project Documentation
 
 ## 📋 Project Overview
 
@@ -17,17 +17,6 @@ The AI Marketplace Platform is a comprehensive web application that serves as a 
 - **Primary**: Developers, entrepreneurs, and professionals seeking AI-powered solutions
 - **Secondary**: Content creators, researchers, and businesses looking for automation
 - **Tertiary**: General users interested in exploring AI capabilities
-
-## 🏗️ System Architecture
-
-### Technology Stack
-- **Frontend**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS + shadcn/ui components
-- **Routing**: React Router DOM
-- **State Management**: React hooks + localStorage
-- **Icons**: Lucide React
-- **Data Querying**: TanStack React Query
 
 ### Core Components
 1. **Marketplace** - Main discovery interface
