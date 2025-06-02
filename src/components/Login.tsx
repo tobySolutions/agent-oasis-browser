@@ -50,17 +50,17 @@ export const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-4xl">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
             <div className="relative">
-              <Bot className="w-12 h-12 text-purple-400" />
-              <Sparkles className="w-6 h-6 text-yellow-400 absolute -top-1 -right-1" />
+              <Bot className="w-12 h-12 text-black" />
+              <Sparkles className="w-6 h-6 text-gray-600 absolute -top-1 -right-1" />
             </div>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-2">AI Agent Marketplace</h1>
-          <p className="text-gray-300 text-lg">Powered by Gaia Inferencing • Choose your demo profile</p>
+          <h1 className="text-4xl font-bold text-black mb-2">AI Agent Marketplace</h1>
+          <p className="text-gray-600 text-lg">Powered by Gaia Inferencing • Choose your demo profile</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -69,21 +69,27 @@ export const Login = ({ onLogin }) => {
               key={user.id}
               className={`cursor-pointer transition-all duration-300 hover:scale-105 ${
                 selectedUser?.id === user.id 
-                  ? 'bg-purple-900/50 border-purple-400 shadow-lg shadow-purple-500/25' 
-                  : 'bg-slate-800/50 border-slate-700 hover:border-purple-500'
+                  ? 'bg-black text-white border-black shadow-lg' 
+                  : 'bg-white border-gray-300 hover:border-black'
               }`}
               onClick={() => setSelectedUser(user)}
             >
               <CardHeader className="text-center pb-2">
                 <Avatar className="w-16 h-16 mx-auto mb-2">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback>{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  <AvatarFallback className="bg-gray-200 text-black">{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-white text-lg">{user.name}</CardTitle>
-                <CardDescription className="text-purple-300">{user.role}</CardDescription>
+                <CardTitle className={`text-lg ${selectedUser?.id === user.id ? 'text-white' : 'text-black'}`}>
+                  {user.name}
+                </CardTitle>
+                <CardDescription className={`${selectedUser?.id === user.id ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {user.role}
+                </CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-gray-400 text-sm text-center">{user.bio}</p>
+                <p className={`text-sm text-center ${selectedUser?.id === user.id ? 'text-gray-300' : 'text-gray-500'}`}>
+                  {user.bio}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -93,7 +99,7 @@ export const Login = ({ onLogin }) => {
           <Button 
             onClick={handleLogin}
             disabled={!selectedUser}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Enter Marketplace
           </Button>
