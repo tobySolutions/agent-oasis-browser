@@ -93,16 +93,16 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="border-b border-slate-700/50 bg-slate-900/50 backdrop-blur-sm">
+      <header className="border-b border-gray-800 bg-black">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Button
                 variant="ghost"
                 onClick={() => navigate('/')}
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-white hover:bg-gray-800"
               >
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Back to Marketplace
@@ -113,14 +113,16 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
               <div className="flex items-center space-x-2">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={currentUser?.avatar} alt={currentUser?.name} />
-                  <AvatarFallback>{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  <AvatarFallback className="bg-gray-800 text-white border border-gray-700">
+                    {currentUser?.name?.split(' ').map(n => n[0]).join('')}
+                  </AvatarFallback>
                 </Avatar>
                 <span className="text-white font-medium">{currentUser?.name}</span>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={onLogout}
-                  className="text-gray-400 hover:text-white"
+                  className="text-gray-400 hover:text-white hover:bg-gray-800"
                 >
                   <LogOut className="w-4 h-4" />
                 </Button>
@@ -132,12 +134,12 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <Bot className="w-16 h-16 text-purple-400 mx-auto mb-4" />
+          <Bot className="w-16 h-16 text-white mx-auto mb-4" />
           <h1 className="text-3xl font-bold text-white mb-2">Submit Your AI Agent</h1>
-          <p className="text-gray-300">Share your AI agent with the Gaia-powered marketplace</p>
+          <p className="text-gray-400">Share your AI agent with the Gaia-powered marketplace</p>
         </div>
 
-        <Card className="bg-slate-800/50 border-slate-700">
+        <Card className="bg-gray-900 border-gray-800">
           <CardHeader>
             <CardTitle className="text-white">Agent Information</CardTitle>
             <CardDescription className="text-gray-400">
@@ -156,7 +158,7 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     placeholder="e.g., Smart Contract Analyzer"
-                    className="bg-slate-900/50 border-slate-600 text-white"
+                    className="bg-black border-gray-700 text-white placeholder:text-gray-500 focus:border-white"
                     required
                   />
                 </div>
@@ -164,13 +166,13 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                 <div className="space-y-2">
                   <Label htmlFor="category" className="text-white">Category *</Label>
                   <Select value={formData.category} onValueChange={(value) => handleInputChange('category', value)}>
-                    <SelectTrigger className="bg-slate-900/50 border-slate-600 text-white">
+                    <SelectTrigger className="bg-black border-gray-700 text-white focus:border-white">
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="WEB3">WEB3</SelectItem>
-                      <SelectItem value="SHOPPING">SHOPPING</SelectItem>
-                      <SelectItem value="UTILITY">UTILITY</SelectItem>
+                    <SelectContent className="bg-gray-900 border-gray-700">
+                      <SelectItem value="WEB3" className="text-white hover:bg-gray-800">WEB3</SelectItem>
+                      <SelectItem value="SHOPPING" className="text-white hover:bg-gray-800">SHOPPING</SelectItem>
+                      <SelectItem value="UTILITY" className="text-white hover:bg-gray-800">UTILITY</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -184,7 +186,7 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                   value={formData.description}
                   onChange={(e) => handleInputChange('description', e.target.value)}
                   placeholder="Describe what your agent does and how it helps users..."
-                  className="bg-slate-900/50 border-slate-600 text-white min-h-[100px]"
+                  className="bg-black border-gray-700 text-white placeholder:text-gray-500 focus:border-white min-h-[100px]"
                   required
                 />
               </div>
@@ -197,17 +199,17 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                     value={currentTag}
                     onChange={(e) => setCurrentTag(e.target.value)}
                     placeholder="Add a tag..."
-                    className="bg-slate-900/50 border-slate-600 text-white"
+                    className="bg-black border-gray-700 text-white placeholder:text-gray-500 focus:border-white"
                     onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addTag())}
                   />
-                  <Button type="button" onClick={addTag} size="sm">
+                  <Button type="button" onClick={addTag} size="sm" className="bg-white text-black hover:bg-gray-200">
                     <Plus className="w-4 h-4" />
                   </Button>
                 </div>
                 {formData.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-2">
                     {formData.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" className="bg-slate-700 text-gray-300">
+                      <Badge key={index} variant="secondary" className="bg-gray-800 text-gray-300 border-gray-700">
                         {tag}
                         <button
                           type="button"
@@ -230,7 +232,7 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                   value={formData.capabilities}
                   onChange={(e) => handleInputChange('capabilities', e.target.value)}
                   placeholder="List the main features and capabilities of your agent..."
-                  className="bg-slate-900/50 border-slate-600 text-white"
+                  className="bg-black border-gray-700 text-white placeholder:text-gray-500 focus:border-white"
                 />
               </div>
 
@@ -238,13 +240,13 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
               <div className="space-y-2">
                 <Label htmlFor="pricing" className="text-white">Pricing Model</Label>
                 <Select value={formData.pricing} onValueChange={(value) => handleInputChange('pricing', value)}>
-                  <SelectTrigger className="bg-slate-900/50 border-slate-600 text-white">
+                  <SelectTrigger className="bg-black border-gray-700 text-white focus:border-white">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="free">Free</SelectItem>
-                    <SelectItem value="freemium">Freemium</SelectItem>
-                    <SelectItem value="paid">Paid</SelectItem>
+                  <SelectContent className="bg-gray-900 border-gray-700">
+                    <SelectItem value="free" className="text-white hover:bg-gray-800">Free</SelectItem>
+                    <SelectItem value="freemium" className="text-white hover:bg-gray-800">Freemium</SelectItem>
+                    <SelectItem value="paid" className="text-white hover:bg-gray-800">Paid</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -257,17 +259,17 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                   value={formData.apiEndpoint}
                   onChange={(e) => handleInputChange('apiEndpoint', e.target.value)}
                   placeholder="https://api.youragent.com/v1/chat"
-                  className="bg-slate-900/50 border-slate-600 text-white"
+                  className="bg-black border-gray-700 text-white placeholder:text-gray-500 focus:border-white"
                 />
               </div>
 
               {/* Gaia Integration Notice */}
-              <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+              <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                 <div className="flex items-center space-x-2 mb-2">
-                  <Bot className="w-5 h-5 text-purple-400" />
-                  <span className="text-purple-300 font-medium">Gaia Integration</span>
+                  <Bot className="w-5 h-5 text-white" />
+                  <span className="text-white font-medium">Gaia Integration</span>
                 </div>
-                <p className="text-gray-300 text-sm">
+                <p className="text-gray-400 text-sm">
                   Your agent will be automatically integrated with Gaia inferencing for enhanced performance and reliability.
                 </p>
               </div>
@@ -278,13 +280,13 @@ export const AgentOnboarding = ({ currentUser, onLogout }) => {
                   type="button"
                   variant="outline"
                   onClick={() => navigate('/')}
-                  className="flex-1 border-slate-600 text-gray-300 hover:text-white hover:border-slate-500"
+                  className="flex-1 border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 hover:bg-gray-800"
                 >
                   Cancel
                 </Button>
                 <Button
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                  className="flex-1 bg-white text-black hover:bg-gray-200"
                 >
                   Submit Agent
                 </Button>
