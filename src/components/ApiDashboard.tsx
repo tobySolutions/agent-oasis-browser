@@ -129,16 +129,16 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-slate-700/50 bg-slate-900/50 backdrop-blur-sm">
+      <header className="border-b border-gray-300 bg-black">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Button
                 variant="ghost"
                 onClick={() => navigate('/')}
-                className="text-gray-400 hover:text-white"
+                className="text-white hover:text-white hover:bg-gray-800"
               >
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Back to Marketplace
@@ -149,14 +149,14 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
               <div className="flex items-center space-x-2">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={currentUser?.avatar} alt={currentUser?.name} />
-                  <AvatarFallback>{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  <AvatarFallback className="bg-white text-black">{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                 </Avatar>
                 <span className="text-white font-medium">{currentUser?.name}</span>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={onLogout}
-                  className="text-gray-400 hover:text-white"
+                  className="text-white hover:text-white hover:bg-gray-800"
                 >
                   <LogOut className="w-4 h-4" />
                 </Button>
@@ -170,12 +170,12 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
         {/* Page Header */}
         <div className="mb-8">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
               <Key className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">API Dashboard</h1>
-              <p className="text-gray-400">Manage your agent API keys and access</p>
+              <h1 className="text-3xl font-bold text-black">API Dashboard</h1>
+              <p className="text-gray-600">Manage your agent API keys and access</p>
             </div>
           </div>
         </div>
@@ -184,18 +184,18 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* API Keys List */}
-            <Card className="bg-slate-800/50 border-slate-700">
+            <Card className="bg-white border-gray-300">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-white">Your API Keys</CardTitle>
-                    <CardDescription className="text-gray-400">
+                    <CardTitle className="text-black">Your API Keys</CardTitle>
+                    <CardDescription className="text-gray-600">
                       Manage API keys for accessing agent endpoints
                     </CardDescription>
                   </div>
                   <Button
                     onClick={() => setShowCreateForm(true)}
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                    className="bg-black text-white hover:bg-gray-800"
                   >
                     <Plus className="w-4 h-4 mr-2" />
                     Create Key
@@ -205,13 +205,13 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
               <CardContent className="space-y-4">
                 {apiKeys.length === 0 ? (
                   <div className="text-center py-8">
-                    <Key className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-white mb-2">No API Keys</h3>
-                    <p className="text-gray-400 mb-4">Create your first API key to start accessing agent endpoints</p>
+                    <Key className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                    <h3 className="text-lg font-medium text-black mb-2">No API Keys</h3>
+                    <p className="text-gray-600 mb-4">Create your first API key to start accessing agent endpoints</p>
                     <Button
                       onClick={() => setShowCreateForm(true)}
                       variant="outline"
-                      className="border-slate-600 text-gray-300 hover:text-white"
+                      className="border-gray-300 text-black hover:bg-gray-100"
                     >
                       <Plus className="w-4 h-4 mr-2" />
                       Create Your First Key
@@ -220,36 +220,36 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
                 ) : (
                   <div className="space-y-4">
                     {apiKeys.map((apiKey) => (
-                      <div key={apiKey.id} className="border border-slate-600 rounded-lg p-4">
+                      <div key={apiKey.id} className="border border-gray-300 rounded-lg p-4">
                         <div className="flex items-center justify-between mb-3">
                           <div>
-                            <h4 className="text-white font-medium">{apiKey.name}</h4>
-                            <p className="text-sm text-gray-400">Agent: {apiKey.agentName}</p>
+                            <h4 className="text-black font-medium">{apiKey.name}</h4>
+                            <p className="text-sm text-gray-600">Agent: {apiKey.agentName}</p>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <Badge className={apiKey.isActive ? 'bg-green-500/20 text-green-400 border-green-500/30' : 'bg-red-500/20 text-red-400 border-red-500/30'}>
+                            <Badge className={apiKey.isActive ? 'bg-black text-white' : 'bg-gray-300 text-gray-700'}>
                               {apiKey.isActive ? 'Active' : 'Inactive'}
                             </Badge>
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => handleDeleteApiKey(apiKey.id)}
-                              className="text-red-400 hover:text-red-300"
+                              className="text-red-500 hover:text-red-700 hover:bg-red-50"
                             >
                               <Trash2 className="w-4 h-4" />
                             </Button>
                           </div>
                         </div>
                         
-                        <div className="flex items-center space-x-2 bg-slate-900/50 rounded p-3">
-                          <code className="flex-1 text-sm text-gray-300 font-mono">
+                        <div className="flex items-center space-x-2 bg-gray-100 rounded p-3">
+                          <code className="flex-1 text-sm text-black font-mono">
                             {visibleKeys.has(apiKey.id) ? apiKey.key : maskApiKey(apiKey.key)}
                           </code>
                           <Button
                             variant="ghost"
                             size="sm"
                             onClick={() => toggleKeyVisibility(apiKey.id)}
-                            className="text-gray-400 hover:text-white"
+                            className="text-gray-600 hover:text-black"
                           >
                             {visibleKeys.has(apiKey.id) ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </Button>
@@ -257,7 +257,7 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
                             variant="ghost"
                             size="sm"
                             onClick={() => copyToClipboard(apiKey.key)}
-                            className="text-gray-400 hover:text-white"
+                            className="text-gray-600 hover:text-black"
                           >
                             <Copy className="w-4 h-4" />
                           </Button>
@@ -276,32 +276,32 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
 
             {/* Create API Key Form */}
             {showCreateForm && (
-              <Card className="bg-slate-800/50 border-slate-700">
+              <Card className="bg-white border-gray-300">
                 <CardHeader>
-                  <CardTitle className="text-white">Create New API Key</CardTitle>
-                  <CardDescription className="text-gray-400">
+                  <CardTitle className="text-black">Create New API Key</CardTitle>
+                  <CardDescription className="text-gray-600">
                     Generate a new API key for agent access
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <Label htmlFor="keyName" className="text-white">Key Name</Label>
+                    <Label htmlFor="keyName" className="text-black">Key Name</Label>
                     <Input
                       id="keyName"
                       value={newKeyName}
                       onChange={(e) => setNewKeyName(e.target.value)}
                       placeholder="e.g., Production App, Development Testing"
-                      className="bg-slate-900 border-slate-600 text-white"
+                      className="bg-white border-gray-300 text-black"
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="agent" className="text-white">Select Agent</Label>
+                    <Label htmlFor="agent" className="text-black">Select Agent</Label>
                     <select
                       id="agent"
                       value={selectedAgent}
                       onChange={(e) => setSelectedAgent(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-600 rounded-md px-3 py-2 text-white"
+                      className="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-black"
                     >
                       <option value="">Choose an agent...</option>
                       {agents.map((agent) => (
@@ -315,14 +315,14 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
                   <div className="flex space-x-3">
                     <Button
                       onClick={handleCreateApiKey}
-                      className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                      className="bg-black text-white hover:bg-gray-800"
                     >
                       Create API Key
                     </Button>
                     <Button
                       variant="outline"
                       onClick={() => setShowCreateForm(false)}
-                      className="border-slate-600 text-gray-300 hover:text-white"
+                      className="border-gray-300 text-black hover:bg-gray-100"
                     >
                       Cancel
                     </Button>
@@ -335,25 +335,25 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
           {/* Sidebar */}
           <div className="space-y-6">
             {/* API Documentation */}
-            <Card className="bg-slate-800/50 border-slate-700">
+            <Card className="bg-white border-gray-300">
               <CardHeader>
-                <CardTitle className="text-white">API Documentation</CardTitle>
-                <CardDescription className="text-gray-400">
+                <CardTitle className="text-black">API Documentation</CardTitle>
+                <CardDescription className="text-gray-600">
                   Learn how to integrate agent APIs
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="bg-slate-900/50 rounded p-4">
-                  <h4 className="text-white font-medium mb-2">Base URL</h4>
-                  <code className="text-sm text-purple-400">https://api.marketplace.ai/v1</code>
+                <div className="bg-gray-100 rounded p-4">
+                  <h4 className="text-black font-medium mb-2">Base URL</h4>
+                  <code className="text-sm text-black">https://api.marketplace.ai/v1</code>
                 </div>
                 
-                <div className="bg-slate-900/50 rounded p-4">
-                  <h4 className="text-white font-medium mb-2">Authentication</h4>
-                  <code className="text-sm text-green-400">Authorization: Bearer YOUR_API_KEY</code>
+                <div className="bg-gray-100 rounded p-4">
+                  <h4 className="text-black font-medium mb-2">Authentication</h4>
+                  <code className="text-sm text-black">Authorization: Bearer YOUR_API_KEY</code>
                 </div>
                 
-                <Button variant="outline" className="w-full border-slate-600 text-gray-300 hover:text-white">
+                <Button variant="outline" className="w-full border-gray-300 text-black hover:bg-gray-100">
                   <ExternalLink className="w-4 h-4 mr-2" />
                   View Full Documentation
                 </Button>
@@ -361,25 +361,25 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
             </Card>
 
             {/* Usage Stats */}
-            <Card className="bg-slate-800/50 border-slate-700">
+            <Card className="bg-white border-gray-300">
               <CardHeader>
-                <CardTitle className="text-white">Usage Overview</CardTitle>
+                <CardTitle className="text-black">Usage Overview</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Active Keys</span>
-                  <span className="text-white font-medium">{apiKeys.filter(k => k.isActive).length}</span>
+                  <span className="text-gray-600">Active Keys</span>
+                  <span className="text-black font-medium">{apiKeys.filter(k => k.isActive).length}</span>
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-400">Total Agents</span>
-                  <span className="text-white font-medium">{new Set(apiKeys.map(k => k.agentId)).size}</span>
+                  <span className="text-gray-600">Total Agents</span>
+                  <span className="text-black font-medium">{new Set(apiKeys.map(k => k.agentId)).size}</span>
                 </div>
                 
-                <Separator className="bg-slate-600" />
+                <Separator className="bg-gray-300" />
                 
                 <div className="text-center">
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-600">
                     API access requires paid subscription per agent
                   </p>
                 </div>
@@ -387,13 +387,13 @@ export const ApiDashboard: React.FC<ApiDashboardProps> = ({ currentUser, onLogou
             </Card>
 
             {/* Quick Start */}
-            <Card className="bg-slate-800/50 border-slate-700">
+            <Card className="bg-white border-gray-300">
               <CardHeader>
-                <CardTitle className="text-white">Quick Start</CardTitle>
+                <CardTitle className="text-black">Quick Start</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-slate-900/50 rounded p-4">
-                  <pre className="text-sm text-gray-300">
+                <div className="bg-gray-100 rounded p-4">
+                  <pre className="text-sm text-black">
                     <code>{`curl -X POST \\
   https://api.marketplace.ai/v1/chat \\
   -H "Authorization: Bearer YOUR_KEY" \\

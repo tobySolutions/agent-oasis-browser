@@ -50,33 +50,33 @@ export const Marketplace = ({ currentUser, onLogout }) => {
 
   const getCategoryColor = (category) => {
     switch (category) {
-      case 'WEB3': return 'bg-green-500/20 text-green-400 border-green-500/30';
-      case 'SHOPPING': return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
-      case 'UTILITY': return 'bg-purple-500/20 text-purple-400 border-purple-500/30';
-      case 'FINANCE': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30';
-      case 'HEALTH': return 'bg-red-500/20 text-red-400 border-red-500/30';
-      case 'EDUCATION': return 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30';
-      case 'ENTERTAINMENT': return 'bg-pink-500/20 text-pink-400 border-pink-500/30';
-      case 'BUSINESS': return 'bg-orange-500/20 text-orange-400 border-orange-500/30';
-      default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
+      case 'WEB3': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'SHOPPING': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'UTILITY': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'FINANCE': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'HEALTH': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'EDUCATION': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'ENTERTAINMENT': return 'bg-gray-200 text-gray-800 border-gray-300';
+      case 'BUSINESS': return 'bg-gray-200 text-gray-800 border-gray-300';
+      default: return 'bg-gray-200 text-gray-800 border-gray-300';
     }
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b border-slate-700/50 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-10">
+      <header className="border-b border-gray-300 bg-black sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Bot className="w-8 h-8 text-purple-400" />
+              <Bot className="w-8 h-8 text-white" />
               <h1 className="text-2xl font-bold text-white">AI Marketplace</h1>
             </div>
             
             <div className="flex items-center space-x-4">
               <Button
                 onClick={() => navigate('/onboard')}
-                className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                className="bg-white text-black hover:bg-gray-200 border border-gray-300"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Submit Agent
@@ -84,27 +84,27 @@ export const Marketplace = ({ currentUser, onLogout }) => {
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center space-x-2 text-white hover:text-white">
+                  <Button variant="ghost" className="flex items-center space-x-2 text-white hover:text-white hover:bg-gray-800">
                     <Avatar className="w-8 h-8">
                       <AvatarImage src={currentUser?.avatar} alt={currentUser?.name} />
-                      <AvatarFallback>{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                      <AvatarFallback className="bg-white text-black">{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                     </Avatar>
                     <span className="font-medium">{currentUser?.name}</span>
                     <ChevronDown className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56 bg-slate-800 border-slate-700">
+                <DropdownMenuContent align="end" className="w-56 bg-white border-gray-300">
                   <DropdownMenuItem 
                     onClick={() => navigate('/dashboard')}
-                    className="text-gray-300 hover:text-white hover:bg-slate-700 cursor-pointer"
+                    className="text-black hover:text-black hover:bg-gray-100 cursor-pointer"
                   >
                     <Settings className="w-4 h-4 mr-2" />
                     API Dashboard
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator className="bg-slate-600" />
+                  <DropdownMenuSeparator className="bg-gray-300" />
                   <DropdownMenuItem 
                     onClick={onLogout}
-                    className="text-gray-300 hover:text-white hover:bg-slate-700 cursor-pointer"
+                    className="text-black hover:text-black hover:bg-gray-100 cursor-pointer"
                   >
                     <LogOut className="w-4 h-4 mr-2" />
                     Sign Out
@@ -125,7 +125,7 @@ export const Marketplace = ({ currentUser, onLogout }) => {
               placeholder="Search agents..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 bg-slate-800/50 border-slate-600 text-white placeholder-gray-400"
+              className="pl-10 bg-white border-gray-300 text-black placeholder-gray-500"
             />
           </div>
           
@@ -137,8 +137,8 @@ export const Marketplace = ({ currentUser, onLogout }) => {
                 onClick={() => setSelectedCategory(category)}
                 className={`${
                   selectedCategory === category 
-                    ? 'bg-purple-600 hover:bg-purple-700' 
-                    : 'border-slate-600 text-gray-300 hover:text-white hover:border-slate-500'
+                    ? 'bg-black text-white hover:bg-gray-800' 
+                    : 'border-gray-300 text-black hover:bg-gray-100 hover:border-gray-400'
                 }`}
               >
                 {category}
@@ -149,38 +149,38 @@ export const Marketplace = ({ currentUser, onLogout }) => {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card className="bg-slate-800/50 border-slate-700">
+          <Card className="bg-white border-gray-300">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Total Agents</p>
-                  <p className="text-2xl font-bold text-white">{agents.length}</p>
+                  <p className="text-gray-600 text-sm">Total Agents</p>
+                  <p className="text-2xl font-bold text-black">{agents.length}</p>
                 </div>
-                <Bot className="w-8 h-8 text-purple-400" />
+                <Bot className="w-8 h-8 text-black" />
               </div>
             </CardContent>
           </Card>
           
-          <Card className="bg-slate-800/50 border-slate-700">
+          <Card className="bg-white border-gray-300">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Active Users</p>
-                  <p className="text-2xl font-bold text-white">2.4k</p>
+                  <p className="text-gray-600 text-sm">Active Users</p>
+                  <p className="text-2xl font-bold text-black">2.4k</p>
                 </div>
-                <Users className="w-8 h-8 text-blue-400" />
+                <Users className="w-8 h-8 text-black" />
               </div>
             </CardContent>
           </Card>
           
-          <Card className="bg-slate-800/50 border-slate-700">
+          <Card className="bg-white border-gray-300">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Total Interactions</p>
-                  <p className="text-2xl font-bold text-white">156k</p>
+                  <p className="text-gray-600 text-sm">Total Interactions</p>
+                  <p className="text-2xl font-bold text-black">156k</p>
                 </div>
-                <Activity className="w-8 h-8 text-green-400" />
+                <Activity className="w-8 h-8 text-black" />
               </div>
             </CardContent>
           </Card>
@@ -191,17 +191,17 @@ export const Marketplace = ({ currentUser, onLogout }) => {
           {filteredAgents.map((agent) => (
             <Card 
               key={agent.id}
-              className="bg-slate-800/50 border-slate-700 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 cursor-pointer group"
+              className="bg-white border-gray-300 hover:border-black transition-all duration-300 hover:scale-105 cursor-pointer group hover:shadow-lg"
               onClick={() => navigate(`/agent/${agent.id}`)}
             >
               <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center">
                       <Bot className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <CardTitle className="text-white text-lg group-hover:text-purple-300 transition-colors">
+                      <CardTitle className="text-black text-lg group-hover:text-gray-600 transition-colors">
                         {agent.name}
                       </CardTitle>
                       <Badge className={getCategoryColor(agent.category)}>
@@ -213,13 +213,13 @@ export const Marketplace = ({ currentUser, onLogout }) => {
               </CardHeader>
               
               <CardContent className="pt-0">
-                <CardDescription className="text-gray-300 mb-4 line-clamp-2">
+                <CardDescription className="text-gray-600 mb-4 line-clamp-2">
                   {agent.description}
                 </CardDescription>
                 
-                <div className="flex items-center justify-between text-sm text-gray-400">
+                <div className="flex items-center justify-between text-sm text-gray-500">
                   <div className="flex items-center space-x-1">
-                    <Star className="w-4 h-4 text-yellow-400" />
+                    <Star className="w-4 h-4 text-black" />
                     <span>{agent.rating}</span>
                     <span>({agent.reviews})</span>
                   </div>
@@ -231,7 +231,7 @@ export const Marketplace = ({ currentUser, onLogout }) => {
                 
                 <div className="flex flex-wrap gap-1 mt-3">
                   {agent.tags.slice(0, 3).map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs bg-slate-700 text-gray-300">
+                    <Badge key={index} variant="secondary" className="text-xs bg-gray-100 text-gray-700 border border-gray-300">
                       {tag}
                     </Badge>
                   ))}
@@ -243,8 +243,8 @@ export const Marketplace = ({ currentUser, onLogout }) => {
 
         {filteredAgents.length === 0 && (
           <div className="text-center py-12">
-            <Bot className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-400 mb-2">No agents found</h3>
+            <Bot className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">No agents found</h3>
             <p className="text-gray-500">Try adjusting your search or filters</p>
           </div>
         )}
