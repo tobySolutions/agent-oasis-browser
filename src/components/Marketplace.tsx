@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { Bot, Search, Plus, Star, Users, Activity, LogOut, Filter } from 'lucide-react';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Bot, Search, Plus, Star, Users, Activity, LogOut, Filter, ChevronDown, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { agentData } from '@/data/agentData';
 
@@ -81,21 +82,35 @@ export const Marketplace = ({ currentUser, onLogout }) => {
                 Submit Agent
               </Button>
               
-              <div className="flex items-center space-x-2">
-                <Avatar className="w-8 h-8">
-                  <AvatarImage src={currentUser?.avatar} alt={currentUser?.name} />
-                  <AvatarFallback>{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                </Avatar>
-                <span className="text-white font-medium">{currentUser?.name}</span>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={onLogout}
-                  className="text-gray-400 hover:text-white"
-                >
-                  <LogOut className="w-4 h-4" />
-                </Button>
-              </div>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="flex items-center space-x-2 text-white hover:text-white">
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src={currentUser?.avatar} alt={currentUser?.name} />
+                      <AvatarFallback>{currentUser?.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    </Avatar>
+                    <span className="font-medium">{currentUser?.name}</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-slate-800 border-slate-700">
+                  <DropdownMenuItem 
+                    onClick={() => navigate('/dashboard')}
+                    className="text-gray-300 hover:text-white hover:bg-slate-700 cursor-pointer"
+                  >
+                    <Settings className="w-4 h-4 mr-2" />
+                    API Dashboard
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator className="bg-slate-600" />
+                  <DropdownMenuItem 
+                    onClick={onLogout}
+                    className="text-gray-300 hover:text-white hover:bg-slate-700 cursor-pointer"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
